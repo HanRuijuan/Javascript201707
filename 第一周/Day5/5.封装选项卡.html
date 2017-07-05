@@ -78,7 +78,7 @@
 </div>
 <script type="text/javascript">
 
-    function Tab() { // 类中this就是当前实例
+    function Tab(options) { // 类中this就是当前实例
 //      console.log(options);
         this.le = options.le; // 将传递进来的id名保存到当前实例私有属性el中
         this.select = options.select || 0; // 是否传递了select参数
@@ -87,7 +87,7 @@
 
     // 获取操作元素
     Tab.prototype.getEle = function () { // getEle this 是当前实例
-        var container = document.getElementById(this.el); // 根据保存id名获取到最外层容器
+        var container = document.getElementById(this.le); // 根据保存id名获取到最外层容器
         this.oLis = container.getElementsByTagName('li'); // 将li元素集合保存到实例属性中
         this.oPanel = container.getElementsByTagName('div'); // 将div元素集合保存到实例属性中
         this.l = this.oLis.length; // 保存 length
@@ -143,10 +143,10 @@
     });
     new Tab({
         le: 'Tab2', // 容器id
-        select: 4
+        select: 2
     });
 
-    
+
 
 
 
